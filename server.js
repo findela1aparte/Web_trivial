@@ -21,6 +21,13 @@ app.use(express.static('public'));
 io.on('connection', socket => {
   console.log('Jugador conectado:', socket.id);
 
+  socket.on('reset-game', () => {
+  players = {};
+  currentQuestionIndex = 0;
+  currentResponders = new Set();
+  io.emit('game-reset');
+  });
+
   socket.on('join', name => {
     players[socket.id] = { name, score: 0 };
     io.emit('players-update', Object.values(players));

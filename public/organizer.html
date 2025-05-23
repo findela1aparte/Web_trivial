@@ -10,6 +10,14 @@
   <h2 id="questionCounter">Pregunta: 0/0</h2>
   <button id="nextBtn">Siguiente Pregunta</button>
 
+  <button id="resetBtn">🔁 Reiniciar Trivial</button>
+
+  <div id="confirmReset" style="display:none; position:fixed; top:30%; left:50%; transform:translate(-50%,-50%); background:white; padding:2rem; border:1px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.2);">
+    <p>¿Estás seguro de que quieres reiniciar el juego?</p>
+    <button id="confirmYes">Sí</button>
+    <button id="cancelReset">Volver atrás</button>
+  </div>
+
   <h2>Jugadores conectados:</h2>
   <ul id="playerList"></ul>
   <h2 id="gameStatus"></h2>

@@ -32,3 +32,21 @@ socket.on("game-over", (players) => {
     list.appendChild(li);
   });
 });
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  document.getElementById("confirmReset").style.display = "block";
+});
+
+document.getElementById("cancelReset").addEventListener("click", () => {
+  document.getElementById("confirmReset").style.display = "none";
+});
+
+document.getElementById("confirmYes").addEventListener("click", () => {
+  socket.emit("reset-game");
+  document.getElementById("confirmReset").style.display = "none";
+});
+
+// Respuesta del servidor
+socket.on("game-reset", () => {
+  location.reload(); // Reinicia la interfaz del organizador
+});
