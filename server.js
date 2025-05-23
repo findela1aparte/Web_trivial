@@ -3,15 +3,17 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 let players = {};
 let currentQuestionIndex = 0;
-let questions = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
+let questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'questions.json'), 'utf8'));
 
 // Servimos archivos estáticos
 app.use(express.static('public'));
@@ -44,5 +46,5 @@ io.on('connection', socket => {
 });
 
 server.listen(PORT, () => {
-  console.log(`Servidor iniciado en http://localhost:${PORT}`);
+  console.log(`Servidor iniciado en el puerto ${PORT}`);
 });
