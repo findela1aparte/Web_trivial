@@ -1,0 +1,22 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trivial</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Trivial Multijugador</h1>
+  <input type="text" id="nameInput" placeholder="Tu nombre" />
+  <button id="joinBtn">Unirse</button>
+
+  <div id="questionArea" style="display:none;">
+    <h2 id="questionText"></h2>
+    <div id="options"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
