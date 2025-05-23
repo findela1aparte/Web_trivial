@@ -8,5 +8,20 @@
     "question": "¿Cuánto es 5 x 6?",
     "options": ["30", "11", "25", "56"],
     "answer": "30"
+  },
+  {
+    "question": "¿Quién escribió 'Cien años de soledad'?",
+    "options": ["Gabriel García Márquez", "Pablo Neruda", "Jorge Luis Borges", "Julio Cortázar"],
+    "answer": "Gabriel García Márquez"
+  },
+  {
+    "question": "¿Cuál es el océano más grande del mundo?",
+    "options": ["Atlántico", "Índico", "Ártico", "Pacífico"],
+    "answer": "Pacífico"
+  },
+  {
+    "question": "¿Qué planeta es conocido como el planeta rojo?",
+    "options": ["Marte", "Venus", "Júpiter", "Saturno"],
+    "answer": "Marte"
   }
 ]

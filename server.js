@@ -48,3 +48,27 @@ io.on('connection', socket => {
 server.listen(PORT, () => {
   console.log(`Servidor iniciado en el puerto ${PORT}`);
 });
+
+let currentResponders = new Set();
+
+socket.on('answer', correct => {
+  if (!currentResponders.has(socket.id)) {
+    if (correct) players[socket.id].score++;
+    currentResponders.add(socket.id);
+    io.emit('players-update', Object.values(players), Array.from(currentResponders));
+  }
+});
+
+socket.on('next-question', () => {
+  if (currentQuestionIndex < questions.length) {
+    currentResponders = new Set();
+    io.emit('new-question', {
+      question: questions[currentQuestionIndex],
+      index: currentQuestionIndex + 1,
+      total: questions.length,
+    });
+    currentQuestionIndex++;
+  } else {
+    io.emit('game-over', Object.values(players));
+  }
+});
